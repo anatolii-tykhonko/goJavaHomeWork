@@ -1,4 +1,4 @@
-package com.anatoliy.practice.modul02.tack021;
+package com.anatoliy.practice.modul02.task021;
 
 
 public class Calculate {

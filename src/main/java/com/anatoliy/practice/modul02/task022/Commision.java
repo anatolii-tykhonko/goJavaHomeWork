@@ -1,4 +1,4 @@
-package com.anatoliy.practice.modul02.tack022;
+package com.anatoliy.practice.modul02.task022;
 
 
 public class Commision {
