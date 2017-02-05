@@ -13,7 +13,7 @@ public class Commision {
     public void withdraw(int balance, int withdrawal, double commisionByPercent) {
         double commisionByMoney = withdrawal * commisionByPercent / 100;
         if ((commisionByMoney + withdrawal) < balance)
-            System.out.println("OK " + commisionByMoney + " " + (balance - commisionByMoney));
+            System.out.println("OK " + commisionByMoney + " " + (balance - commisionByMoney - withdrawal));
         else System.out.println("NO");
     }
 }
