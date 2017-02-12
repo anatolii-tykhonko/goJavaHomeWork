@@ -17,9 +17,9 @@ public class FundBalance {
             }
         }
         FundBalance fundBalance = new FundBalance();
-        fundBalance.fund(balances[index], ownerName, deposit);
+        fundBalance.printNameBalance(balances[index], ownerName, deposit);
     }
-    public void fund(int balance, String ownerName, double deposit){
+    public void printNameBalance(int balance, String ownerName, double deposit){
         System.out.println(ownerName + " " + (balance + deposit));
     }
 }

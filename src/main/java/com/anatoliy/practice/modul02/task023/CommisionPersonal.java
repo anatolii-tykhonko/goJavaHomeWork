@@ -18,10 +18,10 @@ public class CommisionPersonal {
             }
         }
         CommisionPersonal commisionPersonal = new CommisionPersonal();
-        commisionPersonal.withdraw(balances[index], ownerName, withdrawal, commisionByPercent);
+        commisionPersonal.printNameBalance(balances[index], ownerName, withdrawal, commisionByPercent);
     }
 
-    public void withdraw(int balance, String ownerName, double withdrawal, double commisionByPercent) {
+    public void printNameBalance(int balance, String ownerName, double withdrawal, double commisionByPercent) {
         double commisionByMoney = withdrawal * commisionByPercent / 100;
         if ((commisionByMoney + withdrawal) < balance)
             System.out.println(ownerName + " " + withdrawal + " " + (balance - commisionByMoney - withdrawal));

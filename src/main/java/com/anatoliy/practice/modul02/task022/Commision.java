@@ -7,10 +7,10 @@ public class Commision {
         int withdrawal = 10;
         double commisionByPercent = 5.0;
         Commision commision = new Commision();
-        commision.withdraw(balance, withdrawal, commisionByPercent);
+        commision.printCommisionBalance(balance, withdrawal, commisionByPercent);
     }
 
-    public void withdraw(int balance, int withdrawal, double commisionByPercent) {
+    public void printCommisionBalance(int balance, int withdrawal, double commisionByPercent) {
         double commisionByMoney = withdrawal * commisionByPercent / 100;
         if ((commisionByMoney + withdrawal) < balance)
             System.out.println("OK " + commisionByMoney + " " + (balance - commisionByMoney - withdrawal));
