@@ -76,18 +76,17 @@ public class User {
 
     public void withdraw(int summ) {
         System.out.println("снимает деньги с баланса с комиссией 5%, если сумма < 1000 и комиссией 10% в других случаях");
+        double persentOfCommision;
         if (summ < 1000) {
-            if (balance >= (summ + (summ * COMMISION_FIVE_PERSENTS))) {
-                balance = balance - summ - (summ * COMMISION_FIVE_PERSENTS);
-            } else {
-                System.out.println("Недостаточно средств на счету");
-            }
+            persentOfCommision = COMMISION_FIVE_PERSENTS;
         } else {
-            if (balance >= (summ + (summ * COMMISION_TEN_PERSENTS))) {
-                balance = balance - summ - (summ * COMMISION_TEN_PERSENTS);
-            } else {
-                System.out.println("Недостаточно средств на счету");
-            }
+            persentOfCommision = COMMISION_TEN_PERSENTS;
+        }
+        if (balance >= (summ + (summ * persentOfCommision))) {
+            balance = balance - summ - (summ * persentOfCommision);
+            System.out.println("Balanca = " + balance);
+        } else {
+            System.out.println("Недостаточно средств на счету");
         }
     }
 
