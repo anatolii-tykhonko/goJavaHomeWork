@@ -2,8 +2,8 @@ package com.anatoliy.practice.modul03.task034;
 
 public class User {
 
-    private static final  double COMMISION_FIVE_PERSENTS = 0.05;
-    private static final  double COMMISION_TEN_PERSENTS = 0.1;
+    private static final double COMMISION_FIVE_PERSENTS = 0.05;
+    private static final double COMMISION_TEN_PERSENTS = 0.1;
     private String name;
     private double balance;
     private int monthsOfEmployment;
@@ -19,6 +19,7 @@ public class User {
         this.salary = salary;
         this.currency = currency;
     }
+
     public String getName() {
         return name;
     }
@@ -67,29 +68,39 @@ public class User {
         this.currency = currency;
     }
 
-    void paySalary(){
+    public void paySalary() {
         System.out.println("добавляет  заработную плату к балансу пользователя");
-        balance =+ salary;
+        balance = +salary;
         System.out.println("Balance = " + balance);
     }
-    void withdraw(int summ){
+
+    public void withdraw(int summ) {
         System.out.println("снимает деньги с баланса с комиссией 5%, если сумма < 1000 и комиссией 10% в других случаях");
-        if(summ < 1000){
-            balance = balance - summ - (summ * COMMISION_FIVE_PERSENTS);
+        if (summ < 1000) {
+            if (balance >= (summ + (summ * COMMISION_FIVE_PERSENTS))) {
+                balance = balance - summ - (summ * COMMISION_FIVE_PERSENTS);
+            } else {
+                System.out.println("Недостаточно средств на счету");
+            }
         } else {
-            balance = balance - summ - (summ * COMMISION_TEN_PERSENTS);
+            if (balance >= (summ + (summ * COMMISION_TEN_PERSENTS))) {
+                balance = balance - summ - (summ * COMMISION_TEN_PERSENTS);
+            } else {
+                System.out.println("Недостаточно средств на счету");
+            }
         }
-        System.out.println("Balance = " + balance);
     }
-    void printCompanyNameLenght(){
+
+    public void printCompanyNameLenght() {
         System.out.println("вычисляет длину имя компании и выводит в консоль");
         int companyNameLenght;
         companyNameLenght = companyName.length();
         System.out.println("Название компании содержит " + companyNameLenght + " букв");
     }
-    void monthIncreaser(int addMonth){
+
+    public void monthIncreaser(int addMonth) {
         System.out.println("Увеличивает monthsOfEmployment на показатель addMonth");
-        monthsOfEmployment =+ addMonth;
+        monthsOfEmployment = +addMonth;
         System.out.println("Стаж работы " + monthsOfEmployment + " месяцев");
     }
 
