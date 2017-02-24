@@ -2,60 +2,58 @@ package com.anatoliy.practice.modul04.task041;
 
 public class ChinaBank extends Bank {
 
-    public ChinaBank (long id, String bankCountry, Currency currency, int numberOfEmployees, double avrSalaryOfEmployee, long rating, long totalCapital){
-        super(id, bankCountry, currency,  numberOfEmployees,  avrSalaryOfEmployee,  rating,  totalCapital);
+    private final static int LIMIT_WITHDRAW_USD = 100;
+    private final static int LIMIT_WITHDRAW_EUR = 150;
+    private final static int LIMIT_FUND_EUR = 5000;
+    private final static int LIMIT_FUND_USD = 10000;
+    private final static int RATE_USD = 1;
+    private final static int RATE_EUR = 0;
+    private final static int[] COMMISSION_EUR = {10, 11};
+    private final static int[] COMMISSION_USD = {3, 5};
+
+    public ChinaBank(long id, String bankCountry, Currency currency, int numberOfEmployees, double avrSalaryOfEmployee, long rating, long totalCapital) {
+        super(id, bankCountry, currency, numberOfEmployees, avrSalaryOfEmployee, rating, totalCapital);
     }
 
     public int getLimitOfWithdrawal() {
         System.out.println("Возвращает лимит снятия налички в зависимости от валюты");
-        int limit;
-        if(getCurrency().equals(Currency.USD)){
-            limit  = 100;
+        if (getCurrency().equals(Currency.USD)) {
+            return LIMIT_WITHDRAW_USD;
         } else {
-            limit = 150;
+            return LIMIT_WITHDRAW_EUR;
         }
-        return limit;
     }
 
     public int getLimitOfFunding() {
         System.out.println("Возвращает сумму максимального пополнения счета в зависимости от валюты");
-        int limit;
-        if(getCurrency().equals(Currency.USD)){
-            limit  = 10000;
+        if (getCurrency().equals(Currency.USD)) {
+            return LIMIT_FUND_USD;
         } else {
-            limit = 5000;
+            return LIMIT_FUND_EUR;
         }
-        return limit;
     }
 
     public int getMonthlyRate() {
         System.out.println("Возвращает показатель месячного процента в зависимости от валюты");
-        int rate;
-        if(getCurrency().equals(Currency.USD)){
-            rate  = 1;
-        }else {
-            rate = 0;
+        if (getCurrency().equals(Currency.USD)) {
+            return RATE_USD;
+        } else {
+            return RATE_EUR;
         }
-        return rate;
     }
 
     public int getCommission(int summ) {
         System.out.println("Возвращает сумму коммисии при снятии наличных в зависимости от суммы и типа валюты");
-        int  commisionUSD;
-        int  commisionEUR;
-        int commsion;
-        if (summ < 1000){
-            commisionUSD = 3;
-            commisionEUR = 10;
+        int commissionPosition;
+        if (summ < 1000) {
+            commissionPosition = 0;
         } else {
-            commisionUSD = 5;
-            commisionEUR = 11;
+            commissionPosition = 1;
         }
-        if(getCurrency().equals(Currency.USD)) {
-            commsion = commisionUSD;
+        if (getCurrency().equals(Currency.USD)) {
+            return COMMISSION_USD[commissionPosition];
         } else {
-            commsion = commisionEUR;
+            return COMMISSION_EUR[commissionPosition];
         }
-        return commsion;
     }
 }

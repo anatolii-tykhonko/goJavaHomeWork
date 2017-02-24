@@ -1,8 +1,8 @@
 package com.anatoliy.practice.modul04.task041;
 
 public  interface BankSystem {
-    void withdrawOfUser(User user, int amount);
-    void fundUser(User user, int amount);
+    boolean withdrawOfUser(User user, int amount);
+    boolean fundUser(User user, int amount);
     void transferMoney(User fromUser, User toUser, int amount);
     void paySalary(User user);
 }
