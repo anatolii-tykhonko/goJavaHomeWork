@@ -10,7 +10,11 @@ public class Room {
     private String hotelName;
     private String cityName;
 
-    public Room(){}
+    public Room(int price, int persons, String cityName) {
+        this.price = price;
+        this.persons = persons;
+        this.cityName = cityName;
+    }
 
     public Room(long id, int price, int persons, Date dateAvailableFrom, String hotelName, String cityName) {
         this.id = id;
@@ -87,5 +91,17 @@ public class Room {
         result = 31 * result + persons;
         result = 31 * result + (cityName != null ? cityName.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "id=" + id +
+                ", price=" + price +
+                ", persons=" + persons +
+                ", dateAvailableFrom=" + dateAvailableFrom +
+                ", hotelName='" + hotelName + '\'' +
+                ", cityName='" + cityName + '\'' +
+                '}';
     }
 }
