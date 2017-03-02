@@ -14,23 +14,47 @@ public class Controller {
     }
 
     public Room[] requstRooms(int price, int person, String city) {
-        Room[] roomsFind = new Room[apis.length * 10];
-        int positionInArray = 0;
+        System.out.println("Поиск по всем апи по заданым параметрам");
+        Room[] arrayRoomsFind = new Room[apis.length * 10];
+        int positionInNewArray = 0;
         for (int i = 0; i < apis.length; i++) {
             if (apis[i].findRooms(price, person, city) != null) {
-                System.arraycopy(apis[i].findRooms(price, person, city), 0, roomsFind, positionInArray, apis[i].findRooms(price, person, city).length);
-                positionInArray = apis[i].findRooms(price, person, city).length;
+
+                System.arraycopy(apis[i].findRooms(price, person, city), 0, arrayRoomsFind, positionInNewArray, apis[i].findRooms(price, person, city).length);
+                positionInNewArray += apis[i].findRooms(price, person, city).length;
             }
         }
-        return roomsFind;
+
+        return chekNullArray(arrayRoomsFind, positionInNewArray);
+    }
+
+    private Room[] chekNullArray(Room[] roomsArray, int lenght) {
+        Room[] roomsNoNull = new Room[lenght];
+        int index = 0;
+        for (int i = 0; i < roomsArray.length; i++) {
+            if (roomsArray[i] != null) {
+                roomsNoNull[index] = roomsArray[i];
+                index++;
+            }
+        }
+        return roomsNoNull;
     }
 
     public Room[] check(API api1, API api2) {
-        Room[] roomClone = new Room[3];
-        if(api1.equals(api2)){
-            System.arraycopy(roomClone, 0, api1,0, 3);
+        System.out.println("Выводит одинаковые комнаты из 2 разных апи");
+        System.out.println("api1 : " + api1.getClass().getSimpleName()+ " and " + "api2 : " + api2.getClass().getSimpleName());
+        Room[] roomsAPI1 = api1.getRooms();
+        Room[] roomsAPI2 = api2.getRooms();
+        Room[] roomsSameResult = new Room[5];
+        int indexRoomsSameResult = 0;
+        for (int i = 0; i < roomsAPI1.length; i++) {
+            for(Room room : roomsAPI2){
+                if(roomsAPI1[i].equals(room)){
+                    roomsSameResult[indexRoomsSameResult] = roomsAPI1[i];
+                    indexRoomsSameResult++;
+                }
+            }
         }
-
-        return null;
+        return roomsSameResult;
     }
 }

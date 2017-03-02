@@ -1,5 +1,6 @@
 package com.anatoliy.practice.modul05;
 
+import java.util.Arrays;
 import java.util.Date;
 
 public class GoogleAPI implements API {
@@ -7,9 +8,15 @@ public class GoogleAPI implements API {
     private Room[] rooms = new Room[5];
 
     public GoogleAPI() {
-        for (int i = 1; i < 6; i++) {
-            rooms[i - 1] = new Room(i + 12, i * 110, i, new Date(), "Ukraine", "Lviv");
-        }
+        rooms[0] = new Room(111, 200, 3, new Date(), "Ukraine", "Kiev");
+        rooms[1] = new Room(121, 200, 2, new Date(), "Ukraine", "Dnepr");
+        rooms[2] = new Room(131, 550, 1, new Date(), "Karlos", "Kiev");
+        rooms[3] = new Room(141, 400, 2, new Date(), "Vitam", "Lviv");
+        rooms[4] = new Room(151, 500, 1, new Date(), "Karlos", "Kiev");
+    }
+
+    public Room[] getRooms() {
+        return rooms;
     }
 
     public Room[] findRooms(int price, int persons, String city) {
@@ -33,4 +40,12 @@ public class GoogleAPI implements API {
         }
         return roomResult;
     }
+
+    @Override
+    public String toString() {
+        return "GoogleAPI{" +
+                "rooms=" + Arrays.toString(rooms) +
+                '}';
+    }
+
 }
