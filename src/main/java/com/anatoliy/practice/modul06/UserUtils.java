@@ -2,7 +2,7 @@ package com.anatoliy.practice.modul06;
 
 public class UserUtils {
 
-    public static User[] uniqueUsers(User[] users) {
+    public static final User[] uniqueUsers(User[] users) {
         User[] arrayUser = new User[users.length];
         int countUniqueUser = 0;
         for (int i = 0; i < users.length; i++) {
@@ -31,7 +31,7 @@ public class UserUtils {
         }
     }
 
-    public static User[] usersWithContitionalBalance(User[] users, int balance) {
+    public static final User[] usersWithContitionalBalance(User[] users, int balance) {
         User[] arrayUsers = new User[users.length];
         int countUsersContitionalBalance = 0;
         for (int i = 0; i < users.length; i++) {
@@ -60,7 +60,7 @@ public class UserUtils {
         return usersId;
     }
 
-    public static User[] deleteEmptyUsers(User[] users) {
+    public static final User[] deleteEmptyUsers(User[] users) {
         User[] arrayWithoutEmptyUsers = new User[getCountEmptyUsers(users)];
         int index = 0;
         for (int i = 0; i < users.length; i++) {
