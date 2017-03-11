@@ -1,6 +1,8 @@
 package com.anatoliy.practice.modul06;
 
-public class UserUtils {
+public final class  UserUtils {
+
+    private UserUtils(){}
 
     public static final User[] uniqueUsers(User[] users) {
         User[] arrayUser = new User[users.length];

@@ -2,6 +2,8 @@ package com.anatoliy.practice.modul06;
 
 public final class ArraysUtils {
 
+    private ArraysUtils(){}
+
     public static final void printSumOfArray(int[] array) {
         int resultSumOfArray = 0;
         for (int i = 0; i < array.length; i++) {
