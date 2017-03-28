@@ -1,4 +1,4 @@
-package com.anatoliy.practice.modul07;
+package com.anatoliy.practice.modul07.tack071;
 
 import java.util.*;
 
