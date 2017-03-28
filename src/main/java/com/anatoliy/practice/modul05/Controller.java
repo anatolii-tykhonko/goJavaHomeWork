@@ -9,6 +9,7 @@ public class Controller {
         apis[2] = new TripAdvisorAPI();
     }
 
+
     public API getApis(int index) {
         return apis[index];
     }
@@ -25,6 +26,7 @@ public class Controller {
             }
         }
 
+
         return chekNullArray(arrayRoomsFind, positionInNewArray);
     }
 
@@ -35,6 +37,7 @@ public class Controller {
             if (roomsArray[i] != null) {
                 roomsNoNull[index] = roomsArray[i];
                 index++;
+
             }
         }
         return roomsNoNull;
@@ -57,4 +60,21 @@ public class Controller {
         }
         return roomsSameResult;
     }
+
+    public Room save(Room room){
+        return getApis(1).getDAO().save(room);
+    }
+
+    public boolean delete(Room room){
+       return getApis(0).getDAO().delete(room);
+    }
+
+    public Room update(Room room){
+        return getApis(2).getDAO().update(room);
+    }
+
+    public Room findById(long id){
+        return getApis(0).getDAO().findById(id);
+    }
+
 }

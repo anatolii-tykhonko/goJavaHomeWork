@@ -1,6 +1,8 @@
 package com.anatoliy.practice.modul05;
 
-public class DAOImpl implements DAO{
+import java.util.Arrays;
+
+public class DAOImpl implements DAO {
 
     Room[] roomDB = new Room[10];
 
@@ -12,8 +14,8 @@ public class DAOImpl implements DAO{
 
     private int getRoomsCount(Room[] roomDB) {
         int count = 0;
-        for(Room room : roomDB){
-            if(room != null){
+        for (Room room : roomDB) {
+            if (room != null) {
                 count++;
             }
         }
@@ -23,9 +25,9 @@ public class DAOImpl implements DAO{
     public boolean delete(Room room) {
         for (int i = 0; i < roomDB.length; i++) {
             Room roomInd = roomDB[i];
-            if(room.equals(roomInd)){
+            if (room.equals(roomInd)) {
                 System.arraycopy(roomDB, i - 1, roomDB, i, roomDB.length - i - 1);
-                roomDB[roomDB.length -1] = null;
+                roomDB[roomDB.length - 1] = null;
             }
         }
         return false;
@@ -33,7 +35,7 @@ public class DAOImpl implements DAO{
 
     public Room update(Room room) {
         for (int i = 0; i < roomDB.length; i++) {
-            if(room.getId() == roomDB[i].getId()){
+            if (room.getId() == roomDB[i].getId()) {
                 roomDB[i] = room;
             }
         }
@@ -41,11 +43,32 @@ public class DAOImpl implements DAO{
     }
 
     public Room findById(long id) {
-        for(Room room : roomDB){
-            if(room != null && room.getId() == id){
+        for (Room room : roomDB) {
+            if (room != null && room.getId() == id) {
                 return room;
             }
         }
         return null;
+    }
+
+    public Room[] getAll() {
+        return roomDB;
+    }
+    /*public Room[] getAll() {
+        Room[] roomsNoNull = new Room[getRoomsCount(roomDB)];
+        int indexArrayRoomsNoNull = 0;
+            for(Room room : roomDB){
+                if(room != null){
+                    roomsNoNull[indexArrayRoomsNoNull] = room;
+                    indexArrayRoomsNoNull++;
+                }
+            }
+        return roomsNoNull;
+    }*/
+
+    @Override
+    public String toString() {
+        return "DAOImpl{" +
+                "roomDB=";
     }
 }

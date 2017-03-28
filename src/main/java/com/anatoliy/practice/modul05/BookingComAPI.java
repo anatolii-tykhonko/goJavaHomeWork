@@ -19,6 +19,10 @@ public class BookingComAPI implements API {
         return rooms;
     }
 
+    public DAO getDAO() {
+        return new DAOImpl();
+    }
+
     public Room[] findRooms(int price, int persons, String city) {
         Room roomFind = new Room(price, persons, city);
         Room[] roomArray = new Room[rooms.length];
@@ -34,6 +38,7 @@ public class BookingComAPI implements API {
 
             for (int i = 0; i < index; i++) {
                 roomResult[i] = roomArray[i];
+                getDAO().save(roomArray[i]);
             }
         } else {
             return null;
