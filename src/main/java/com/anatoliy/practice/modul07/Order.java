@@ -14,6 +14,7 @@ public class Order {
 
     public Order(int price, Currency currency, String itemName, String shopIdentificator, User user) {
         this.id = (long) (100 * Math.random());
+        //this.id = 10;                                                 //для проверки сортировки по ID и городу
         this.price = price;
         this.currency = currency;
         this.itemName = itemName;
