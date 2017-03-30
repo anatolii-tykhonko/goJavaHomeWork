@@ -1,4 +1,4 @@
-package com.anatoliy.practice.modul07.tack071;
+package com.anatoliy.practice.modul07.task071;
 
 /**
  * Created by anaatolii on 28.03.17.

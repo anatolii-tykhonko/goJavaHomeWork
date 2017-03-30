@@ -1,8 +1,8 @@
 package com.anatoliy.practice.modul07.task073;
 
-import com.anatoliy.practice.modul07.tack071.Currency;
-import com.anatoliy.practice.modul07.tack071.Order;
-import com.anatoliy.practice.modul07.tack071.User;
+import com.anatoliy.practice.modul07.task071.Currency;
+import com.anatoliy.practice.modul07.task071.Order;
+import com.anatoliy.practice.modul07.task071.User;
 
 import java.util.*;
 
