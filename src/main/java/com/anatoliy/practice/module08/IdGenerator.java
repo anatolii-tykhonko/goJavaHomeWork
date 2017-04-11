@@ -7,7 +7,7 @@ public final class IdGenerator {
 
     public static final long generatorId(Country country, String name) {
 
-        long id = country.ordinal() + name.length();
+        long id = country.ordinal() + name.length() * 10;
         return id;
     }
 }

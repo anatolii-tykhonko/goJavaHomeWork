@@ -2,7 +2,7 @@ package com.anatoliy.practice.module08;
 
 import java.util.*;
 
-public interface IManageSystem<T extends Food>{
+public interface IManageSystem<T extends Food> {
 
     T save(T obj, double price);
 
@@ -19,4 +19,8 @@ public interface IManageSystem<T extends Food>{
     Set<T> getProducts();
 
     List<Double> getPrices();
+
+    void printProductsSortedByName();
+
+    void printProductsSortedByPrice();
 }

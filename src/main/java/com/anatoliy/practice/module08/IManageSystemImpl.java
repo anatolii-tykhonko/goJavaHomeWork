@@ -1,6 +1,7 @@
 package com.anatoliy.practice.module08;
 
 import java.util.*;
+import code.SortedMapFromValue;
 
 public final class IManageSystemImpl<T extends Food> implements IManageSystem<T> {
     private Map<T, Double> database = new HashMap();
@@ -31,8 +32,8 @@ public final class IManageSystemImpl<T extends Food> implements IManageSystem<T>
 
     public T get(long id) {
         Set<T> setOfFood = database.keySet();
-        for(T food : setOfFood){
-            if(food.getId() == id){
+        for (T food : setOfFood) {
+            if (food.getId() == id) {
                 return food;
             }
         }
@@ -43,9 +44,29 @@ public final class IManageSystemImpl<T extends Food> implements IManageSystem<T>
         return database.get(food);
     }
 
-    public  Set getProducts() {
+    public Set getProducts() {
 
         return database.keySet();
+    }
+
+    public void printProductsSortedByName() {
+        Map<T, Double> sortDB = new TreeMap<T, Double>(database);
+        for (Map.Entry<T, Double> sort : sortDB.entrySet()) {
+            T key = sort.getKey();
+            Double value = sort.getValue();
+            System.out.println(key + " цена " + value);
+
+        }
+    }
+    //насколько я понял сортировки по значению нету в стандыртном наборе методов МАР поэтому нашел код который можно использовать много раз и импортировал его
+    public void printProductsSortedByPrice() {
+        Map<T, Double> sortDB = SortedMapFromValue.sortByValue(database);
+        for (Map.Entry<T, Double> sort : sortDB.entrySet()) {
+            T key = sort.getKey();
+            Double value = sort.getValue();
+            System.out.println(key + " цена " + value);
+
+        }
     }
 
     public List<Double> getPrices() {

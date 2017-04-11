@@ -1,6 +1,8 @@
 package com.anatoliy.practice.module08;
 
-public class Food {
+import java.util.Comparator;
+
+public class Food implements Comparable<Food>{
     private long id;
     private String name;
     private Country country;
@@ -29,6 +31,7 @@ public class Food {
         return expiration;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -50,5 +53,9 @@ public class Food {
                 "name='" + name + '\'' +
                 ", expiration=" + expiration + "days" +
                 '}';
+    }
+
+    public int compareTo(Food o) {
+        return this.getName().compareTo(o.getName());
     }
 }
