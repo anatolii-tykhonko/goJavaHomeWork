@@ -22,8 +22,9 @@ public class Main {
         System.out.println(manage.getProducts());
         manage.deleteById(f1.getId());
         System.out.println(manage.getProducts());
+        System.out.println("Сортировка но названию продуктов");
         manage.printProductsSortedByName();
-        System.out.println();
+        System.out.println("Сортировка по цене");
         manage.printProductsSortedByPrice();
     }
 }
