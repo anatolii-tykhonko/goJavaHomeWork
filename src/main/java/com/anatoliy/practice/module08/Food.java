@@ -49,10 +49,8 @@ public class Food implements Comparable<Food>{
 
     @Override
     public String toString() {
-        return "Food{" +
-                "name='" + name + '\'' +
-                ", expiration=" + expiration + "days" +
-                '}';
+        return "Это - Food " +
+                "под названием '" + name + "'";
     }
 
     public int compareTo(Food o) {
