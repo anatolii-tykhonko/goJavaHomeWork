@@ -18,9 +18,12 @@ public class Main {
         manage.save(f5, 340);
         manage.save(f6, 120);
         manage.save(f7, 35);
+        System.out.println("Поиск по ID продукта");
         System.out.println(manage.get(f2.getId()));
+        System.out.println("Вывод всех продуктов");
         System.out.println(manage.getProducts());
         manage.deleteById(f1.getId());
+        System.out.println("Ввывод продуктов после удаления по ID");
         System.out.println(manage.getProducts());
         System.out.println("Сортировка но названию продуктов");
         manage.printProductsSortedByName();
