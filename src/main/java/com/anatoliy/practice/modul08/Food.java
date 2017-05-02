@@ -1,6 +1,4 @@
-package com.anatoliy.practice.module08;
-
-import java.util.Comparator;
+package com.anatoliy.practice.modul08;
 
 public class Food implements Comparable<Food>{
     private long id;

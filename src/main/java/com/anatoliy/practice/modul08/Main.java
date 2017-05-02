@@ -1,4 +1,4 @@
-package com.anatoliy.practice.module08;
+package com.anatoliy.practice.modul08;
 
 public class Main {
     public static void main(String[] args) {
