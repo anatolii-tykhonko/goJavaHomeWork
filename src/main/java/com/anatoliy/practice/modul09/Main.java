@@ -33,7 +33,7 @@ public class Main {
         //System.out.println(removeWithPrice(orders, 1500));
         System.out.println("разделите список на 2 списка - заказы в долларах и в гривнах");
         printOrdersByCurrency(orders);
-        System.out.println("разделите список на столько списков, сколько уникальных городов в User");   //не могу
+        System.out.println("разделите список на столько списков, сколько уникальных городов в User");
         printOrdersByCity(orders);
         System.out.println("проверьте, содержит ли сет заказ, где фамилия пользователя - “Burk”");
         checkSoname(orders, "Burk");
@@ -82,15 +82,9 @@ public class Main {
     }
 
     public static <T extends Order> void printOrdersByCity(List<T> allOrders) {
-        Stream<String> city = allOrders.stream().map(T::getUser).map(User::getCity).distinct();
-        Map<String, List<T>> orderMap = new HashMap<>();
-        orderMap.put(city.toString(), allOrders.stream().filter(t -> t.getUser().getCity().equals(city)).collect(Collectors.toList()));
-        for(Map.Entry<String, List<T>> pair : orderMap.entrySet()){
-            String key = pair.getKey();
-            List<T> value = pair.getValue();
-            System.out.println(value);
-
-        }
+        List<String> city = allOrders.stream().map(T::getUser).map(User::getCity).distinct().collect(Collectors.toList());
+        Map<String, List<T>> orderMap = allOrders.stream().collect(Collectors.groupingBy(i -> i.getUser().getCity()));
+        System.out.println(orderMap);
     }
 
     public static <T extends Order> void checkSoname(List<T> allOrders, String soname){
